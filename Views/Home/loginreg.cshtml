@@ -1,0 +1,53 @@
+﻿@model FormWrapper
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+            asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+            crossorigin="anonymous"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
+    </environment>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+        <div class="two-col">
+            <h1 class="display-4">Register</h1>
+            <form asp-action="register" asp-controller="Home">
+                <label asp-for="Register.FirstName"></label>
+                <input type="text" asp-for="Register.FirstName"><br>
+                <span asp-validation-for="Register.FirstName"></span><br>
+                <label asp-for="Register.LastName"></label>
+                <input type="text" asp-for="Register.LastName"><br>
+                <span asp-validation-for="Register.LastName"></span><br>
+                <label asp-for="Register.Email"></label>
+                <input type="text" asp-for="Register.Email"><br>
+                <span asp-validation-for="Register.Email"></span><br>
+                <label asp-for="Register.Password"></label>
+                <input type="text" asp-for="Register.Password"><br>
+                <span asp-validation-for="Register.Password"></span><br>
+                <label asp-for="Register.Confirm"></label>
+                <input type="text" asp-for="Register.Confirm"><br>
+                <span asp-validation-for="Register.Confirm"></span><br>
+                <button>Register</button>
+            </form>
+        </div>
+        <div class="two-col">
+            <h1 class="display-4">Login</h1>
+            <form asp-action="Login" asp-controller="Home">
+                <label asp-for="Login.Email"></label>
+                <input type="text" asp-for="Login.Email"><br>
+                <label asp-for="Login.Password"></label>
+                <input type="text" asp-for="Login.Password"><br>
+                <button>Login</button>
+            </form>
+        </div>
+</body>
+</html>
+
+

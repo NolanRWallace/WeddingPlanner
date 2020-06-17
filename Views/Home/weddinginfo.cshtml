@@ -1,0 +1,16 @@
+@{
+    Layout = "_Layout";
+}
+
+
+<h1 class="display-4">@ViewBag.Wedding.Wedder1 and @ViewBag.Wedding.Wedder2's Wedding</h1>
+<h2 class="display-4">@ViewBag.Wedding.Date.ToString("D")</h2>
+<br><br><br>
+<h4>Guests:</h4>
+<ul>
+    @foreach(Guest G in ViewBag.Wedding.GuestList)
+    {
+        <li>@G.User.FirstName @G.User.LastName</li>
+    }
+    
+</ul>

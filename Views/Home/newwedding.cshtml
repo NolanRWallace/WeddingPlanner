@@ -1,0 +1,21 @@
+@{
+    Layout = "_Layout";
+}
+@model Wedding
+
+<h1 class="display-4">Plan Your Wedding</h1>
+<form asp-action="NewWedding" asp-controller="Home">
+    <label asp-for="Wedder1"></label>
+    <input type="text" asp-for="Wedder1"><br>
+    <span asp-validation-asp-validation-for="Wedder1"></span><br>
+    <label asp-for="Wedder2"></label>
+    <input type="text" asp-for="Wedder2"><br>
+    <span asp-validation-asp-validation-for="Wedder2"></span><br>
+    <label asp-for="Date"></label>
+    <input type="Date" asp-for="Date"><br>
+    <span asp-validation-asp-validation-for="Date"></span><br>
+    <label asp-for="VenueAddress"></label>
+    <input type="text" asp-for="VenueAddress"><br>
+    <span asp-validation-asp-validation-for="VenueAddress"></span><br>
+    <button>Create</button>
+</form>

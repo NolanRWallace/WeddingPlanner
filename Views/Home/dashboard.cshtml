@@ -1,0 +1,37 @@
+@{
+    Layout = "_Layout";
+}
+
+
+<h1 class="display-4">Welcome to the Wedding Planner</h1>
+<table>
+    <thead>
+        <th>Wedding</th>
+        <th>Date</th>
+        <th>Guest</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        @foreach(Wedding wed in ViewBag.WeddingInfo)
+        {
+            <tr>
+                <td><a href="/weddinginfo/@wed.WeddingId">@wed.Wedder1 & @wed.Wedder2</a></td>
+                <td>@wed.Date.ToString("D")</td>
+                <td>@wed.GuestList.Count</td>
+                @if(@wed.UserId == ViewBag.UserId)
+                {
+                    <td><a href="/Delete/@wed.WeddingId">Delete</a></td>
+                }
+                else if(wed.GuestList.Exists(g => g.UserId == ViewBag.UserId))
+                {
+                    <td><a href="/unrsvp/@wed.WeddingId">Un-RSVP</a></td>
+                }
+                else
+                {
+                    <td><a href="/rsvp/@wed.WeddingId">RSVP</a></td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+    <button><a href="/new/wedding">Add Wedding</a></button>
